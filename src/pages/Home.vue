@@ -1,11 +1,11 @@
 <script setup>
+import HomeHeader from './home/HomeHeader.vue';
+
 
 </script>
 
 <template>
-    <div>
-        <h1 class="bg-danger"> Home Component</h1>
-    </div>
+    <HomeHeader />
 </template>
 
 <style scoped></style>

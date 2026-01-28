@@ -138,10 +138,40 @@ body {
   color: var(--color-neutral-500);
 }
 
+.text-neutral-300 {
+  color: var(--color-neutral-300);
+}
+
 .text-sm {
   font-size: 0.875rem;
 }
 
 .font-semibold {
   font-weight: var(--font-weight-semibold);
+}
+
+.w-2 {
+  width: calc(var(--spacing) * 2);
+}
+.h-2 {
+  height: calc(var(--spacing) * 2);
+}
+
+.leading-relaxed {
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+}
+.text-xl {
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
+}
+.max-w-2xl {
+  max-width: var(--container-2xl);
+}
+.mb-10 {
+  margin-bottom: calc(var(--spacing) * 10);
+}
+
+.color-orange-500 {
+  color: var(--color-orange-500);
 }

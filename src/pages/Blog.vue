@@ -1,11 +1,11 @@
 <script setup>
+import BlogHeader from './blog/BlogHeader.vue';
+
 
 </script>
 
 <template>
-    <div>
-        <h1 class="bg-danger"> Blog Component</h1>
-    </div>
+    <BlogHeader />
 </template>
 
 <style scoped></style>
