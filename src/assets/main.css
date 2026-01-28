@@ -1,3 +1,4 @@
+/* @import "./media.css"; */
 :root {
   --color-primary: #f97316;
   --color-primary-light: #fb923c;
@@ -22,8 +23,8 @@
   --color-red-400: oklch(70.4% 0.191 22.216);
   --color-orange-300: oklch(83.7% 0.128 66.29);
   --color-orange-400: oklch(75% 0.183 55.934);
-  --color-orange-500: oklch(70.5% 0.213 47.604);
-  --color-orange-600: oklch(64.6% 0.222 41.116);
+  --color-orange-500: #ff6900;
+  --color-orange-600: #f54a00;
   --color-orange-700: oklch(55.3% 0.195 38.402);
   --color-yellow-300: oklch(90.5% 0.182 98.111);
   --color-yellow-500: oklch(79.5% 0.184 86.047);
@@ -99,17 +100,20 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  border: 0 solid;
   margin: 0;
+  padding: 0;
   font-weight: normal;
 }
 
 body {
+  direction: rtl;
   min-height: 100vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
-  background-color: #0a0a0a;
+  /* background-color: #0a0a0a; */
   font-family:
     Tajawal,
     system-ui,
@@ -120,4 +124,24 @@ body {
 ::selection {
   color: #fff;
   background-color: #f97316;
+}
+
+.text-xs {
+  font-size: var(--text-xs);
+  line-height: var(--tw-leading, var(--text-xs--line-height));
+}
+
+.text-neutral-600 {
+  color: var(--color-neutral-600);
+}
+.text-neutral-500 {
+  color: var(--color-neutral-500);
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
 }

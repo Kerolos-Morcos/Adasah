@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <h1 class="bg-danger">Terms Component</h1>
+        <h1 class="bg-danger">Not Found Component</h1>
     </div>
 </template>
 
