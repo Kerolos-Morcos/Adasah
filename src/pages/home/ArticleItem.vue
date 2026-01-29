@@ -1,10 +1,7 @@
 <script setup>
+import { postsDateArabicFormat } from '@/utils/utils';
 const { post } = defineProps(['post'])
 
-function postsDateArabicFormat() {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(post.date).toLocaleDateString('ar-EG', options);
-}
 </script>
 
 <template>
@@ -47,7 +44,7 @@ function postsDateArabicFormat() {
                             </div>
                             <div>
                                 <p class="author-name">{{ post.author.name }}</p>
-                                <p class="author-date">{{ postsDateArabicFormat() }}</p>
+                                <p class="author-date">{{ postsDateArabicFormat(post) }}</p>
                             </div>
                         </div>
 

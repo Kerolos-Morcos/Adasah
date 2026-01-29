@@ -1,6 +1,5 @@
 <script setup>
 const { category } = defineProps(['category'])
-console.log("asdadasdsada", category)
 const categoryIcons = [
     { name: "إضاءة", icon: "fa-solid fa-sun" },
     { name: "بورتريه", icon: "fa-solid fa-user" },

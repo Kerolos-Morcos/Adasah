@@ -1,5 +1,14 @@
 <script setup>
-
+const props = defineProps({
+    titleSize: {
+        type: String,
+        default: 'clamp(2.5rem, 5vw, 4.5rem)'
+    },
+    descSize: {
+        type: String,
+        default: '1.25rem'
+    }
+})
 </script>
 
 <template>
@@ -17,14 +26,14 @@
 
 <style scoped>
 .section-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: v-bind(titleSize);
     font-weight: 800;
     color: #fff;
     line-height: 1.15;
 }
 
 .section-desc {
-    font-size: 1.5rem;
+    font-size: v-bind(descSize);
     color: var(--color-neutral-400);
     max-width: 640px;
 }

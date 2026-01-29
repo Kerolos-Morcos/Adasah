@@ -3,6 +3,7 @@ import PingDot from '@/components/PingDot.vue';
 import SectionLabel from '@/components/SectionLabel.vue';
 import postsData from '@/store/posts'
 import CategoryItem from './CategoryItem.vue';
+import SectionText from '@/components/SectionText.vue';
 const categoriesData = postsData.categories
 </script>
 
@@ -14,30 +15,24 @@ const categoriesData = postsData.categories
                     <PingDot />
                     التصنيفات
                 </SectionLabel>
-                <h2 class="section-title text-white mb-2">استكشف حسب الموضوع</h2>
-                <p class="section-subtitle mx-auto">اعثر على محتوى مصمم حسب اهتماماتك</p>
+                <SectionText title-size="3.8rem" desc-size="1.2rem">
+                    <template #sectionTitle>
+                        استكشف حسب الموضوع
+                    </template>
+                    <template #sectionDesc>
+                        اعثر على محتوى مصمم حسب اهتماماتك
+                    </template>
+                </SectionText>
             </div>
             <div class="row g-3 g-md-4">
                 <CategoryItem v-for="category in categoriesData" :key="category.name" :category="category" />
             </div>
         </div>
     </section>
-
 </template>
 
 <style scoped>
 .categories-section {
     background: #111111;
-}
-
-.section-title {
-    font-size: 3.8rem;
-    font-weight: 800;
-}
-
-.section-subtitle {
-    font-size: 1.2rem;
-    max-width: 420px;
-    color: #999;
 }
 </style>
