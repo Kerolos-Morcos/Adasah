@@ -3,27 +3,27 @@
 </script>
 
 <template>
-    <h1 class="hero-title mb-4">
+    <h1 class="section-title mb-4">
         <slot name="sectionTitle" />
         <span class="gradient-text">
             <slot name="sectionSpan" />
         </span><br>
         <slot name="sectionTitleCompletion" />
     </h1>
-    <p class="hero-desc text-neutral-400 mb-10 mx-auto leading-relaxed">
+    <p class="section-desc text-neutral-400 mb-10 mx-auto leading-relaxed">
         <slot name="sectionDesc" />
     </p>
 </template>
 
 <style scoped>
-.hero-title {
+.section-title {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 800;
     color: #fff;
     line-height: 1.15;
 }
 
-.hero-desc {
+.section-desc {
     font-size: 1.5rem;
     color: var(--color-neutral-400);
     max-width: 640px;

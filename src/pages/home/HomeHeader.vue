@@ -5,6 +5,7 @@ import SectionLabel from '@/components/SectionLabel.vue';
 import SectionText from '@/components/SectionText.vue';
 import StatsItem from './StatsItem.vue';
 import GridBlobStyle from '@/components/GridBlobStyle.vue';
+import PingDot from '@/components/PingDot.vue';
 
 const statsData = [
     {
@@ -37,9 +38,7 @@ const statsData = [
         <div class="container position-relative py-5">
             <div class="text-center mx-auto" style="max-width: 900px">
                 <SectionLabel v-slot:sectionLabel>
-                    <span class="ping-dot h-2 w-2">
-                        <span></span>
-                    </span>
+                    <PingDot />
                     <span class="text-neutral-300 small fw-medium">
                         مرحباً بك في عدسة
                     </span>
@@ -91,30 +90,6 @@ const statsData = [
     min-height: 90vh;
     background: #0a0a0a;
 }
-
-.ping-dot {
-    position: relative;
-    width: 8px;
-    height: 8px;
-}
-
-.ping-dot span {
-    position: absolute;
-    inset: 0;
-    background: var(--color-primary);
-    border-radius: 50%;
-    animation: ping 1.5s infinite;
-}
-
-@keyframes ping {
-
-    75%,
-    to {
-        opacity: 0;
-        transform: scale(1.2)
-    }
-}
-
 
 /* @keyframes bounce {
     0%,

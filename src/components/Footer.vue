@@ -1,7 +1,8 @@
 <script setup>
 import PrimaryButton from './PrimaryButton.vue';
+import postsData from '@/store/posts'
 
-
+const siteInfo = postsData.siteInfo
 </script>
 
 <template>
@@ -15,19 +16,19 @@ import PrimaryButton from './PrimaryButton.vue';
                         <div class="logo-icon">
                             <span>ع</span>
                         </div>
-                        <span class="fs-4 fw-bold text-white">عدسة</span>
+                        <span class="fs-4 fw-bold text-white">{{ siteInfo.name }}</span>
                     </RouterLink>
                     <p class="text-sm text-neutral-500 mb-4">
-                        مدونة متخصصة في فن التصوير الفوتوغرافي، نشارك معكم أسرار المحترفين ونصائح عملية لتطوير مهاراتكم.
+                        {{ siteInfo.description }}
                     </p>
                     <div class="d-flex gap-2">
-                        <a class="social-icon" href="https://twitter.com/Adasah" target="_blank"><i
+                        <a class="social-icon" :href="siteInfo.social.twitter" target="_blank"><i
                                 class="fa-brands fa-x-twitter"></i></a>
-                        <a class="social-icon" href="https://github.com/Adasah" target="_blank"><i
+                        <a class="social-icon" :href="siteInfo.social.github" target="_blank"><i
                                 class="fa-brands fa-github"></i></a>
-                        <a class="social-icon" href="https://www.linkedin.com/company/adasah" target="_blank"><i
+                        <a class="social-icon" :href="siteInfo.social.linkedin" target="_blank"><i
                                 class="fa-brands fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://www.youtube.com/@adasah" target="_blank"><i
+                        <a class="social-icon" :href="siteInfo.social.youtube" target="_blank"><i
                                 class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
