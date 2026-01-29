@@ -1,15 +1,26 @@
 <script setup>
 import PrimaryButton from './PrimaryButton.vue';
 import MobileMenu from './MobileMenu.vue';
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
 const isOpen = ref(false);
 const route = useRoute();
+
+const isScrolled = ref(false);
+function onScroll() {
+    isScrolled.value = window.scrollY > 50
+}
+onMounted(() => {
+    window.addEventListener('scroll', onScroll);
+})
+onUnmounted(() => {
+    window.removeEventListener('scroll', onScroll);
+})
 </script>
 
 <template>
-    <nav class="navbar custom-navbar navbar-expand-md fixed-top">
+    <nav :class="isScrolled ? 'scrolled' : ''" class="navbar custom-navbar navbar-expand-md sticky-top">
         <MobileMenu :open="isOpen" class="mobileMenu" />
         <div class="container-xl">
             <RouterLink class="navbar-brand d-flex align-items-center gap-3 parent-logo" to="/">
@@ -59,11 +70,18 @@ const route = useRoute();
 <style scoped>
 .custom-navbar {
     height: 80px;
-    background: #161616;
-    backdrop-filter: blur(14px);
     border-bottom: 1px solid transparent;
-    transition: all 0.5s;
+    background: #161616;
+    backdrop-filter: blur(5px);
+    transition: all 0.7s ease;
 }
+
+.custom-navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+}
+
 
 .custom-navbar .navbar-nav {
     border: 1px solid rgba(255, 255, 255, 0.06);

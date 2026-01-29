@@ -3,8 +3,7 @@
 </script>
 
 <template>
-    <main class="flex-grow-1 pt-5">
-        <!-- HERO -->
+    <main class="flex-grow-1">
         <section class="blog-hero position-relative overflow-hidden py-5">
             <div class="hero-grid"></div>
             <div class="hero-blobs">

@@ -11,9 +11,13 @@ import Navbar from './components/Navbar.vue';
 </script>
 
 <template>
-  <Navbar />
-  <RouterView />
-  <Footer />
+  <div class="d-flex flex-column min-vh-100">
+    <Navbar />
+    <main class="flex-grow-1">
+      <RouterView />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <style scoped></style>

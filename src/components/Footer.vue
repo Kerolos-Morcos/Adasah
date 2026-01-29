@@ -34,25 +34,82 @@ const siteInfo = postsData.siteInfo
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="footer-title">استكشف</h5>
+
                     <ul class="list-unstyled footer-links">
                         <li>
-                            <RouterLink to="/home">الرئيسية</RouterLink>
+                            <RouterLink to="/home" class="footer-link">
+                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                                الرئيسية
+                            </RouterLink>
                         </li>
+
                         <li>
-                            <RouterLink to="/blog">المدونة</RouterLink>
+                            <RouterLink to="/blog" class="footer-link">
+                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                                المدونة
+                            </RouterLink>
                         </li>
+
                         <li>
-                            <RouterLink to="/about">من نحن</RouterLink>
+                            <RouterLink to="/about" class="footer-link">
+                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                                من نحن
+                            </RouterLink>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="footer-title">التصنيفات</h5>
+
                     <ul class="list-unstyled footer-links">
-                        <li><a href="#">إضاءة</a></li>
-                        <li><a href="#">بورتريه</a></li>
-                        <li><a href="#">مناظر طبيعية</a></li>
-                        <li><a href="#">تقنيات</a></li>
+                        <li>
+                            <RouterLink to="/blog?category=إضاءة" class="footer-link">
+                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                                إضاءة
+                            </RouterLink>
+                        </li>
+
+                        <li>
+                            <RouterLink to="/blog?category=بورتريه" class="footer-link">
+                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                                بورتريه
+                            </RouterLink>
+                        </li>
+
+                        <li>
+                            <RouterLink to="/blog?category=مناظر طبيعية" class="footer-link">
+                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                                مناظر طبيعية
+                            </RouterLink>
+                        </li>
+
+                        <li>
+                            <RouterLink to="/blog?category=تقنيات" class="footer-link">
+                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                                تقنيات
+                            </RouterLink>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
@@ -218,5 +275,42 @@ const siteInfo = postsData.siteInfo
 
 .footer-bottom-link:hover {
     color: var(--color-primary);
+}
+
+
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: .875rem;
+    color: var(--color-neutral-500);
+    text-decoration: none;
+
+    transition: color .3s ease;
+}
+
+/* السهم */
+.footer-link-arrow {
+    width: 16px;
+    height: 16px;
+
+    opacity: 0;
+    margin-right: -16px;
+
+    transform: rotate(180deg);
+    color: var(--color-primary);
+
+    transition: all .3s ease;
+}
+
+/* hover */
+.footer-link:hover {
+    color: var(--color-primary);
+}
+
+.footer-link:hover .footer-link-arrow {
+    opacity: 1;
+    margin-right: 0;
 }
 </style>

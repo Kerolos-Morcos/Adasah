@@ -77,13 +77,13 @@ const { post } = defineProps(['post'])
 }
 
 .article-img {
-    height: 100%;
+    min-height: 320px;
     overflow: hidden;
 }
 
 .article-img img {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.7s ease;
 }
@@ -142,7 +142,7 @@ const { post } = defineProps(['post'])
 }
 
 .article-title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 700;
     color: #fff;
     transition: color .3s;
