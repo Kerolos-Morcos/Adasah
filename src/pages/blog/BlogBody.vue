@@ -58,7 +58,7 @@ const viewMode = ref('grid')
                 <ArticleItem v-for="post in paginatedPosts" :key="post.id" :post="post" />
             </div>
             <NoBlogsFound v-if="filteredPosts.length === 0" />
-            <Pagination />
+            <Pagination v-if="filteredPosts.length > 0" />
         </div>
     </section>
 </template>
