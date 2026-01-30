@@ -1,11 +1,12 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router';
 import LastPublishedCard from '../home/LastPublishedCard.vue';
-import { inject, provide, ref } from 'vue';
+import { computed, inject, provide, ref } from 'vue';
 import ClearFilterBtn from './ClearFilterBtn.vue';
 import ToggleView from './ToggleView.vue';
 import ArticleItem from '../home/ArticleItem.vue';
 import NoBlogsFound from './NoBlogsFound.vue';
+import Pagination from './Pagination.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -20,6 +21,17 @@ function handleClearFilter() {
     router.push('/blog')
 }
 provide('handleClearFilter', handleClearFilter);
+
+const currentPage = ref(1);
+const perPage = 6
+const paginatedPosts = computed(() => {
+    return filteredPosts.value.slice(
+        (currentPage.value - 1) * perPage,
+        currentPage.value * perPage
+    )
+})
+provide('currentPage', currentPage)
+provide('perPage', perPage)
 
 const viewMode = ref('grid')
 </script>
@@ -40,35 +52,13 @@ const viewMode = ref('grid')
                 </div>
             </div>
             <div v-if="viewMode === 'grid'" class="row g-4">
-                <LastPublishedCard v-for="post in filteredPosts" :key="post.id" :post="post" />
+                <LastPublishedCard v-for="post in paginatedPosts" :key="post.id" :post="post" />
             </div>
             <div v-else class="d-flex flex-column gap-5">
-                <ArticleItem v-for="post in filteredPosts" :key="post.id" :post="post" />
+                <ArticleItem v-for="post in paginatedPosts" :key="post.id" :post="post" />
             </div>
             <NoBlogsFound v-if="filteredPosts.length === 0" />
-            <!-- pagination -->
-            <div class="pagination-wrapper mt-5">
-                <button class="page-btn disabled">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-
-                <button class="page-number active">1</button>
-                <button class="page-number">2</button>
-                <button class="page-number">3</button>
-                <button class="page-number">4</button>
-                <button class="page-number">5</button>
-
-                <button class="page-btn">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div>
-
-            <p class="text-center text-muted mt-3 small">صفحة 1 من 5</p>
-
+            <Pagination />
         </div>
     </section>
 </template>
@@ -77,40 +67,5 @@ const viewMode = ref('grid')
 .blog-list-section {
     padding: 3rem 0;
     background: #0a0a0a;
-}
-
-/* pagination */
-.pagination-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-}
-
-.page-btn,
-.page-number {
-    min-width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    border: 1px solid #262626;
-    background: #161616;
-    color: #9ca3af;
-    transition: 0.3s;
-}
-
-.page-number.active {
-    background: linear-gradient(90deg, #f97316, #ea580c);
-    color: #fff;
-    border: none;
-}
-
-.page-number:hover,
-.page-btn:hover {
-    color: #fff;
-    border-color: rgba(249, 115, 22, .5);
-}
-
-.page-btn.disabled {
-    opacity: .4;
-    cursor: not-allowed;
 }
 </style>
