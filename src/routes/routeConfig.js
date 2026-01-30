@@ -1,5 +1,6 @@
 import About from "@/pages/About.vue";
 import Blog from "@/pages/Blog.vue";
+import BlogDetails from "@/pages/BlogDetails.vue";
 import Home from "@/pages/Home.vue";
 import NotFound from "@/pages/NotFound.vue";
 import Privacy from "@/pages/Privacy.vue";
@@ -22,6 +23,11 @@ const router = createRouter({
       path: "/blog",
       name: "blog",
       component: Blog,
+    },
+    {
+      path: "/blog/:slug",
+      name: "blogDetails",
+      component: BlogDetails,
     },
     {
       path: "/about",
