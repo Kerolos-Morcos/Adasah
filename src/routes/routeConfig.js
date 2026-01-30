@@ -15,22 +15,27 @@ const router = createRouter({
     },
     {
       path: "/home",
+      name: "home",
       component: Home,
     },
     {
       path: "/blog",
+      name: "blog",
       component: Blog,
     },
     {
       path: "/about",
+      name: "about",
       component: About,
     },
     {
       path: "/privacy",
+      name: "privacy",
       component: Privacy,
     },
     {
       path: "/terms",
+      name: "terms",
       component: Terms,
     },
     {

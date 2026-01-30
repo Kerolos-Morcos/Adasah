@@ -34,7 +34,7 @@ import postsData from '@/store/posts'
             </div>
             <div class="row g-4">
                 <!-- Card -->
-                <LastPublishedCard v-for="post in postsData.posts" :key="post.id" :post="post"/>
+                <LastPublishedCard v-for="post in postsData.posts" :key="post.id" :post="post" v-show="post.date >= '2026-01-03' && post.date <= '2026-01-08'"/>
                 <!-- /Card -->
             </div>
         </div>

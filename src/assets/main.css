@@ -174,3 +174,22 @@ body {
 .color-orange-500 {
   color: var(--color-orange-500);
 }
+
+/* BUTTONS */
+.btn-primary-custom {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  border: none;
+  color: #fff;
+  border-radius: var(--radius-xl);
+}
+
+.btn-dark-outline {
+  background: var(--color-dark-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-neutral-400);
+  border-radius: var(--radius-xl);
+}

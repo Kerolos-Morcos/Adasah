@@ -5,7 +5,7 @@ import { postsDateArabicFormat } from '@/utils/utils';
 </script>
 
 <template>
-    <div class="col-md-6 col-lg-4" v-show="post.date >= '2026-01-03' && post.date <= '2026-01-08'">
+    <div class="col-md-6 col-lg-4">
         <article class="post-card">
             <a href="#" class="text-decoration-none">
                 <div class="post-image">

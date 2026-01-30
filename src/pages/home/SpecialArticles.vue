@@ -36,7 +36,7 @@ import ArticleItem from './ArticleItem.vue';
             </div>
             <!-- articles -->
             <div class="d-flex flex-column gap-4">
-                <ArticleItem v-for="post in postsData.posts" :key="post.id" :post="post" />
+                <ArticleItem v-for="post in postsData.posts" :key="post.id" :post="post" v-show="post.featured"/>
             </div>
         </div>
     </section>

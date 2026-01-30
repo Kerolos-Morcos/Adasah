@@ -1,10 +1,12 @@
 <script setup>
 import PingDot from '@/components/PingDot.vue';
 import SectionLabel from '@/components/SectionLabel.vue';
-import postsData from '@/store/posts'
+import postsData from '@/store/posts.json'
 import CategoryItem from './CategoryItem.vue';
 import SectionText from '@/components/SectionText.vue';
-const categoriesData = postsData.categories
+
+const categoriesData = postsData.categories;
+console.log("sa", categoriesData)
 </script>
 
 <template>
