@@ -1,8 +1,12 @@
 <script setup>
+import { inject } from 'vue';
 import PrimaryButton from './PrimaryButton.vue';
 import postsData from '@/store/posts'
 
 const siteInfo = postsData.siteInfo
+const scrollTop = inject('scrollTop');
+
+const categoriesData = postsData.categories;
 </script>
 
 <template>
@@ -12,7 +16,8 @@ const siteInfo = postsData.siteInfo
         <div class="container py-5 position-relative">
             <div class="row g-5">
                 <div class="col-lg-3">
-                    <RouterLink to="/" class="d-flex align-items-center gap-3 mb-4 text-decoration-none footer-logo">
+                    <RouterLink to="/" class="d-flex align-items-center gap-3 mb-4 text-decoration-none footer-logo"
+                        @click.native="scrollTop">
                         <div class="logo-icon">
                             <span>ع</span>
                         </div>
@@ -34,10 +39,9 @@ const siteInfo = postsData.siteInfo
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="footer-title">استكشف</h5>
-
                     <ul class="list-unstyled footer-links">
                         <li>
-                            <RouterLink to="/home" class="footer-link">
+                            <RouterLink to="/home" class="footer-link" @click.native="scrollTop">
                                 <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 5l7 7-7 7" />
@@ -47,7 +51,7 @@ const siteInfo = postsData.siteInfo
                         </li>
 
                         <li>
-                            <RouterLink to="/blog" class="footer-link">
+                            <RouterLink to="/blog" class="footer-link" @click.native="scrollTop">
                                 <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 5l7 7-7 7" />
@@ -57,7 +61,7 @@ const siteInfo = postsData.siteInfo
                         </li>
 
                         <li>
-                            <RouterLink to="/about" class="footer-link">
+                            <RouterLink to="/about" class="footer-link" @click.native="scrollTop">
                                 <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 5l7 7-7 7" />
@@ -69,45 +73,15 @@ const siteInfo = postsData.siteInfo
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="footer-title">التصنيفات</h5>
-
                     <ul class="list-unstyled footer-links">
-                        <li>
-                            <RouterLink to="/blog?category=إضاءة" class="footer-link">
+                        <li v-for="category in categoriesData" :key="category.name">
+                            <RouterLink :to="`/blog?category=${category.name}`" class="footer-link"
+                                @click.native="scrollTop">
                                 <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 5l7 7-7 7" />
                                 </svg>
-                                إضاءة
-                            </RouterLink>
-                        </li>
-
-                        <li>
-                            <RouterLink to="/blog?category=بورتريه" class="footer-link">
-                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                                بورتريه
-                            </RouterLink>
-                        </li>
-
-                        <li>
-                            <RouterLink to="/blog?category=مناظر طبيعية" class="footer-link">
-                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                                مناظر طبيعية
-                            </RouterLink>
-                        </li>
-
-                        <li>
-                            <RouterLink to="/blog?category=تقنيات" class="footer-link">
-                                <svg class="footer-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                                تقنيات
+                                {{ category.name }}
                             </RouterLink>
                         </li>
                     </ul>
@@ -132,8 +106,10 @@ const siteInfo = postsData.siteInfo
                     © 2026 عدسة. صنع بكل <i class="bi bi-heart-fill"></i> جميع الحقوق محفوظة.
                 </p>
                 <div class="d-flex gap-4">
-                    <RouterLink class="footer-bottom-link text-sm" to="/privacy">سياسة الخصوصية</RouterLink>
-                    <RouterLink class="footer-bottom-link text-sm" to="/terms">شروط الخدمة</RouterLink>
+                    <RouterLink class="footer-bottom-link text-sm" to="/privacy" @click.native="scrollTop">سياسة
+                        الخصوصية</RouterLink>
+                    <RouterLink class="footer-bottom-link text-sm" to="/terms" @click.native="scrollTop">شروط الخدمة
+                    </RouterLink>
                 </div>
             </div>
         </div>

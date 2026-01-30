@@ -3,7 +3,9 @@ import PingDot from '@/components/PingDot.vue';
 import SectionLabel from '@/components/SectionLabel.vue';
 import LastPublishedCard from './LastPublishedCard.vue';
 import postsData from '@/store/posts'
+import { inject } from 'vue';
 
+const scrollTop = inject('scrollTop');
 </script>
 
 <template>
@@ -23,7 +25,8 @@ import postsData from '@/store/posts'
                     <p class="section-subtitle mb-0">
                         محتوى جديد طازج من المطبعة
                     </p>
-                    <RouterLink to="/blog" class="latest-link d-inline-flex align-items-center gap-2">
+                    <RouterLink to="/blog" class="latest-link d-inline-flex align-items-center gap-2"
+                        @click.native="scrollTop">
                         عرض جميع المقالات
                         <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -34,7 +37,8 @@ import postsData from '@/store/posts'
             </div>
             <div class="row g-4">
                 <!-- Card -->
-                <LastPublishedCard v-for="post in postsData.posts" :key="post.id" :post="post" v-show="post.date >= '2026-01-03' && post.date <= '2026-01-08'"/>
+                <LastPublishedCard v-for="post in postsData.posts" :key="post.id" :post="post"
+                    v-show="post.date >= '2026-01-03' && post.date <= '2026-01-08'" />
                 <!-- /Card -->
             </div>
         </div>

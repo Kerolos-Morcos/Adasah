@@ -4,9 +4,12 @@ import SectionLabel from '@/components/SectionLabel.vue';
 import postsData from '@/store/posts.json'
 import CategoryItem from './CategoryItem.vue';
 import SectionText from '@/components/SectionText.vue';
+import { useRouter } from 'vue-router';
+import { inject } from 'vue';
 
 const categoriesData = postsData.categories;
-console.log("sa", categoriesData)
+const router = useRouter();
+const scrollTop = inject('scrollTop');
 </script>
 
 <template>
@@ -27,7 +30,8 @@ console.log("sa", categoriesData)
                 </SectionText>
             </div>
             <div class="row g-3 g-md-4">
-                <CategoryItem v-for="category in categoriesData" :key="category.name" :category="category" />
+                <CategoryItem v-for="category in categoriesData" :key="category.name" :category="category"
+                    @click="router.push(`/blog?category=${category.name}`)" @click.native="scrollTop" />
             </div>
         </div>
     </section>

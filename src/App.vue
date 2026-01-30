@@ -1,7 +1,12 @@
 <script setup>
+import { provide } from 'vue';
 import Footer from './components/Footer.vue';
 import Navbar from './components/Navbar.vue';
 
+const scrollTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+provide('scrollTop', scrollTop);
 </script>
 
 <template>

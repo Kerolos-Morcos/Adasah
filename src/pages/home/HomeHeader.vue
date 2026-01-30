@@ -6,6 +6,7 @@ import SectionText from '@/components/SectionText.vue';
 import StatsItem from './StatsItem.vue';
 import GridBlobStyle from '@/components/GridBlobStyle.vue';
 import PingDot from '@/components/PingDot.vue';
+import { inject } from 'vue';
 
 const statsData = [
     {
@@ -30,6 +31,8 @@ const statsData = [
         title: 'كاتب'
     }
 ]
+
+const scrollTop = inject('scrollTop');
 </script>
 
 <template>
@@ -56,7 +59,7 @@ const statsData = [
                     </template>
                 </SectionText>
                 <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
-                    <RouterLink to="/blog">
+                    <RouterLink to="/blog" @click.native="scrollTop">
                         <PrimaryButton v-slot:primaryBtn class="d-inline-flex align-items-center gap-2 btn-hover">
                             <span class="fw-bold fs-6">استكشف المقالات</span>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -66,7 +69,7 @@ const statsData = [
                             </svg>
                         </PrimaryButton>
                     </RouterLink>
-                    <RouterLink to="/about">
+                    <RouterLink to="/about" @click.native="scrollTop">
                         <SecondaryButton v-slot:secondaryBtn class="d-inline-flex align-items-center gap-2">
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

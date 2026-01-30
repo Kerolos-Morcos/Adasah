@@ -1,11 +1,13 @@
 <script setup>
 import PrimaryButton from './PrimaryButton.vue';
 import MobileMenu from './MobileMenu.vue';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { inject, onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
 const isOpen = ref(false);
 const route = useRoute();
+
+const scrollTop = inject('scrollTop');
 
 const isScrolled = ref(false);
 function onScroll() {
@@ -23,7 +25,8 @@ onUnmounted(() => {
     <nav :class="isScrolled ? 'scrolled' : ''" class="navbar custom-navbar navbar-expand-md sticky-top">
         <MobileMenu :open="isOpen" class="mobileMenu" />
         <div class="container-xl">
-            <RouterLink class="navbar-brand d-flex align-items-center gap-3 parent-logo" to="/">
+            <RouterLink class="navbar-brand d-flex align-items-center gap-3 parent-logo" to="/"
+                @click.native="scrollTop">
                 <div class="rounded overflow-hidden" style="width:48px;height:48px;">
                     <img src="/favicon.png" alt="Photography Logo" class="img-fluid h-100 w-100 object-fit-cover">
                 </div>
@@ -39,15 +42,17 @@ onUnmounted(() => {
                 <ul class="navbar-nav mx-auto mb-2 mb-md-0 p-1">
                     <li class="nav-item">
                         <RouterLink :class="{ active: route.path === '/' }" class="nav-link rounded-pill" to="/home"
-                            exact-active-class="active">الرئيسية
+                            exact-active-class="active" @click.native="scrollTop">الرئيسية
                         </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink class="nav-link rounded-pill" to="/blog" exact-active-class="active">المدونة
+                        <RouterLink class="nav-link rounded-pill" to="/blog" exact-active-class="active"
+                            @click.native="scrollTop">المدونة
                         </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink class="nav-link rounded-pill" to="/about" exact-active-class="active">من نحن
+                        <RouterLink class="nav-link rounded-pill" to="/about" exact-active-class="active"
+                            @click.native="scrollTop">من نحن
                         </RouterLink>
                     </li>
                 </ul>
@@ -56,7 +61,7 @@ onUnmounted(() => {
                     <button class="btn-search d-sm-none d-md-block">
                         <i class="bi bi-search"></i>
                     </button>
-                    <router-link to="/blog">
+                    <router-link to="/blog" @click.native="scrollTop">
                         <PrimaryButton v-slot:primaryBtn>
                             ابدأ القراءة
                         </PrimaryButton>

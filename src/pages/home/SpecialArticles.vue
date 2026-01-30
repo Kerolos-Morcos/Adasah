@@ -4,7 +4,9 @@ import PrimaryButton from '@/components/PrimaryButton.vue';
 import SectionLabel from '@/components/SectionLabel.vue';
 import postsData from '@/store/posts'
 import ArticleItem from './ArticleItem.vue';
+import { inject } from 'vue';
 
+const scrollTop = inject('scrollTop');
 </script>
 
 <template>
@@ -23,7 +25,7 @@ import ArticleItem from './ArticleItem.vue';
                         محتوى منتقى لبدء رحلة تعلمك
                     </p>
                 </div>
-                <RouterLink to="/blog">
+                <RouterLink to="/blog" @click.native="scrollTop">
                     <PrimaryButton v-slot:primaryBtn class="rotate-parent"
                         style="border-radius: 15px; padding: 12px 20px;">
                         عرض الكل
@@ -36,7 +38,7 @@ import ArticleItem from './ArticleItem.vue';
             </div>
             <!-- articles -->
             <div class="d-flex flex-column gap-4">
-                <ArticleItem v-for="post in postsData.posts" :key="post.id" :post="post" v-show="post.featured"/>
+                <ArticleItem v-for="post in postsData.posts" :key="post.id" :post="post" v-show="post.featured" />
             </div>
         </div>
     </section>
