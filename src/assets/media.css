@@ -3,3 +3,16 @@
     display: none;
   }
 }
+@media (max-width: 768px) {
+  .section-group {
+    padding-right: 0;
+  }
+
+  .section-body {
+    padding-left: 0;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+}

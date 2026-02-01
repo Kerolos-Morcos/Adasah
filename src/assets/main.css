@@ -26,8 +26,8 @@
   --color-orange-500: #ff6900;
   --color-orange-600: #f54a00;
   --color-orange-700: oklch(55.3% 0.195 38.402);
-  --color-yellow-300: oklch(90.5% 0.182 98.111);
-  --color-yellow-500: oklch(79.5% 0.184 86.047);
+  --color-yellow-300: rgb(255, 223, 32);
+  --color-yellow-500: rgb(240, 177, 0);
   --color-blue-600: oklch(54.6% 0.245 262.881);
   --color-slate-50: oklch(98.4% 0.003 247.858);
   --color-neutral-200: oklch(92.2% 0 0);
@@ -141,6 +141,14 @@ body {
   color: var(--color-neutral-300);
 }
 
+.text-neutral-200 {
+  color: var(--color-neutral-200);
+}
+
+.text-neutral-400 {
+  color: var(--color-neutral-400);
+}
+
 .text-sm {
   font-size: 0.875rem;
 }
@@ -213,4 +221,12 @@ body {
   border: 1px solid #262626;
   border-radius: 20px;
   padding: 24px;
+}
+
+.color-yellow-500 {
+  color: var(--color-yellow-500);
+}
+
+.color-yellow-300 {
+  color: var(--color-yellow-300);
 }

@@ -1,11 +1,13 @@
 <script setup>
+import TermsContent from './terms/TermsContent.vue';
+import TermsHeader from './terms/TermsHeader.vue';
+
 
 </script>
 
 <template>
-    <div>
-        <h1 class="bg-danger">Terms Component</h1>
-    </div>
+    <TermsHeader />
+    <TermsContent />
 </template>
 
 <style scoped></style>

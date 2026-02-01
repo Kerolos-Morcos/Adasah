@@ -1,11 +1,12 @@
 <script setup>
+import PrivacyContent from './privacy/PrivacyContent.vue';
+import PrivacyHeader from './privacy/PrivacyHeader.vue';
 
 </script>
 
 <template>
-    <div>
-        <h1 class="bg-danger">Privacy Component</h1>
-    </div>
+    <PrivacyHeader />
+    <PrivacyContent />
 </template>
 
 <style scoped></style>
