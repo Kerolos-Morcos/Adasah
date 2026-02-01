@@ -1,5 +1,6 @@
 <script setup>
 import AboutHeader from './about/AboutHeader.vue';
+import OurTeam from './about/OurTeam.vue';
 import OurValues from './about/OurValues.vue';
 
 
@@ -8,6 +9,7 @@ import OurValues from './about/OurValues.vue';
 <template>
     <AboutHeader />
     <OurValues />
+    <OurTeam />
 </template>
 
 <style scoped></style>
