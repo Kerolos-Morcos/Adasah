@@ -1,11 +1,15 @@
 <script setup>
 import PrimaryButton from './PrimaryButton.vue';
 import MobileMenu from './MobileMenu.vue';
-import { inject, onMounted, onUnmounted, ref } from 'vue';
+import { computed, inject, onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
 const isOpen = ref(false);
 const route = useRoute();
+
+const isBlogActive = computed(() => {
+    return route.path.startsWith('/blog');
+});
 
 const scrollTop = inject('scrollTop');
 
@@ -46,8 +50,8 @@ onUnmounted(() => {
                         </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink class="nav-link rounded-pill" to="/blog" exact-active-class="active"
-                            @click.native="scrollTop">المدونة
+                        <RouterLink class="nav-link rounded-pill" to="/blog" :class="{ active: isBlogActive }"
+                            active-class="active" @click.native="scrollTop">المدونة
                         </RouterLink>
                     </li>
                     <li class="nav-item">

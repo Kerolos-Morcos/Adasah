@@ -36,10 +36,8 @@ const scrollTop = inject('scrollTop');
                 </div>
             </div>
             <div class="row g-4">
-                <!-- Card -->
-                <LastPublishedCard v-for="post in postsData.posts" :key="post.id" :post="post"
-                    v-show="post.date >= '2026-01-03' && post.date <= '2026-01-08'" />
-                <!-- /Card -->
+                <LastPublishedCard v-for="post in postsData.posts" :key="post.id"
+                    v-show="post.date >= '2026-01-03' && post.date <= '2026-01-08'" :post="post" />
             </div>
         </div>
     </section>

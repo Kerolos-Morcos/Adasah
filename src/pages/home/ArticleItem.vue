@@ -1,12 +1,15 @@
 <script setup>
 import { postsDateArabicFormat } from '@/utils/utils';
+import { inject } from 'vue';
 const { post } = defineProps(['post'])
 
+const scrollTop = inject('scrollTop');
 </script>
 
 <template>
     <article class="featured-article">
-        <RouterLink :to="`/blog/${post.slug}`" class="text-decoration-none d-block">
+        <RouterLink :to="{ name: 'blogDetails', params: { slug: post.slug } }" class="text-decoration-none d-block"
+            @click.native="scrollTop">
             <div class="row g-0">
                 <div class="col-md-6 position-relative article-img">
                     <img :src="post.image" :alt="post.slug">

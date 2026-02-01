@@ -1,13 +1,15 @@
 <script setup>
 const { post } = defineProps(['post'])
 import { postsDateArabicFormat } from '@/utils/utils';
+import { inject } from 'vue';
 
+const scrollTop = inject('scrollTop');
 </script>
 
 <template>
     <div class="col-md-6 col-lg-4">
-        <article class="post-card">
-            <a href="#" class="text-decoration-none">
+        <article class="post-card" @click.native="scrollTop">
+            <RouterLink :to="{ name: 'blogDetails', params: { slug: post.slug } }" class="text-decoration-none">
                 <div class="post-image">
                     <img :src="post.image" :alt="post.slug">
                     <div class="post-overlay"></div>
@@ -41,7 +43,7 @@ import { postsDateArabicFormat } from '@/utils/utils';
                         </div>
                     </div>
                 </div>
-            </a>
+            </RouterLink>
         </article>
     </div>
 </template>
