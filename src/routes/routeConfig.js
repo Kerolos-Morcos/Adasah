@@ -1,10 +1,3 @@
-import About from "@/pages/About.vue";
-import Blog from "@/pages/Blog.vue";
-import BlogDetails from "@/pages/BlogDetails.vue";
-import Home from "@/pages/Home.vue";
-import NotFound from "@/pages/NotFound.vue";
-import Privacy from "@/pages/Privacy.vue";
-import Terms from "@/pages/Terms.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -12,41 +5,41 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: Home,
+      component: () => import("@/pages/Home.vue"),
     },
     {
       path: "/home",
       name: "home",
-      component: Home,
+      component: () => import("@/pages/Home.vue"),
     },
     {
       path: "/blog",
       name: "blog",
-      component: Blog,
+      component: () => import("@/pages/Blog.vue"),
     },
     {
       path: "/blog/:slug",
       name: "blogDetails",
-      component: BlogDetails,
+      component: () => import("@/pages/BlogDetails.vue"),
     },
     {
       path: "/about",
       name: "about",
-      component: About,
+      component: () => import("@/pages/About.vue"),
     },
     {
       path: "/privacy",
       name: "privacy",
-      component: Privacy,
+      component: () => import("@/pages/Privacy.vue"),
     },
     {
       path: "/terms",
       name: "terms",
-      component: Terms,
+      component: () => import("@/pages/Terms.vue"),
     },
     {
       path: "/:pathMatch(.*)*",
-      component: NotFound,
+      component: () => import("@/pages/NotFound.vue"),
     },
   ],
 });
