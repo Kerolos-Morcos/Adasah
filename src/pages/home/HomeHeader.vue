@@ -3,7 +3,7 @@ import PrimaryButton from '@/components/PrimaryButton.vue';
 import SecondaryButton from '@/components/SecondaryButton.vue';
 import SectionLabel from '@/components/SectionLabel.vue';
 import SectionText from '@/components/SectionText.vue';
-import StatsItem from './StatsItem.vue';
+import StatsItem from '../../components/StatsItem.vue';
 import GridBlobStyle from '@/components/GridBlobStyle.vue';
 import PingDot from '@/components/PingDot.vue';
 import { inject } from 'vue';
@@ -93,19 +93,6 @@ const scrollTop = inject('scrollTop');
     min-height: 90vh;
     background: #0a0a0a;
 }
-
-/* @keyframes bounce {
-    0%,
-    to {
-        animation-timing-function: cubic-bezier(.8, 0, 1, 1);
-        transform: translateY(-25%)
-    }
-
-    50% {
-        animation-timing-function: cubic-bezier(0, 0, .2, 1);
-        transform: none
-    }
-} */
 
 .btn-arrow {
     transform: rotate(180deg);

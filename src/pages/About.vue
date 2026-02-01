@@ -1,11 +1,13 @@
 <script setup>
+import AboutHeader from './about/AboutHeader.vue';
+import OurValues from './about/OurValues.vue';
+
 
 </script>
 
 <template>
-    <div>
-        <h1 class="bg-danger">About Component</h1>
-    </div>
+    <AboutHeader />
+    <OurValues />
 </template>
 
 <style scoped></style>

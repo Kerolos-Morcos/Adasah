@@ -1,13 +1,11 @@
 <script setup>
-const { stat } = defineProps([
-    "stat",
-])
+const { stat } = defineProps(["stat"]);
 </script>
 
 <template>
     <div class="col-6 col-md-3">
         <div class="glass-card text-center">
-            <i :class="`${stat.icon} bi bi-journal-text color-orange-500 fs-3 mb-1`"></i>
+            <i :class="`${stat.icon} color-orange-500 fs-3 mb-1`"></i>
             <p class="stat-number gradient-text">{{ stat.count }}</p>
             <p class="stat-label">{{ stat.title }}</p>
         </div>
