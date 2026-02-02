@@ -33,17 +33,17 @@ const scrollTop = inject('scrollTop');
                 <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-4">
                     <RouterLink to="/home">
                         <PrimaryButton v-slot:primaryBtn @click="scrollTop">
-                            الرئيسية
+                            <i class="bi bi-house-door d-flex align-items-center ms-2"></i> الذهاب للرئيسية
                         </PrimaryButton>
                     </RouterLink>
                     <RouterLink to="/blog">
                         <SecondaryButton v-slot:secondaryBtn @click="scrollTop">
-                            تصفح المقالات
+                            <i class="bi bi-journal-text d-flex align-items-center ms-2"></i> تصفح المقالات
                         </SecondaryButton>
                     </RouterLink>
                 </div>
                 <div class="pt-3 border-top">
-                    <p class="text-neutral-400 small mb-3">قد تجد هذه مفيدة:</p>
+                    <p class="text-neutral-400 small mb-2">قد تجد هذه مفيدة:</p>
                     <div class="d-flex justify-content-center flex-wrap gap-3 mb-3">
                         <RouterLink @click="scrollTop" to="/blog" class="link-orange">المدونة</RouterLink>
                         <span class="text-secondary">•</span>
@@ -61,6 +61,8 @@ const scrollTop = inject('scrollTop');
 <style scoped>
 .border-top {
     border-color: var(--color-neutral-700) !important;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .error-page {
