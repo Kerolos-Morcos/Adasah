@@ -15,4 +15,9 @@
   .section-title {
     font-size: 1.25rem;
   }
+
+  .error-code,
+  .error-code-glow {
+    font-size: 120px;
+  }
 }
